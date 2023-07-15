@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--From https://codepen.io/frytyler/pen.EGdtg-->    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+
+</head>
+    
+
+<body>
+ <div class="login"> 
+        <h1>Loan Application Status</h1>
+    <!-- Main Input for receivng query to our ML-->
+    <form action="{{url_for('predict')}}"method="post">
+        <input type="text" name="Amount" placeholder="Loan Amount" required="required"/>
+        <input type="text" name="AppIncome" placeholder="Your Income" required="required"/>
+        <input type="text" name="CoappIncome" placeholder="Guaranter's Income" required="required"/>
+        <input type="text" name="PropertyArea" placeholder="Property Area" required="required"/>
+        <input type="text" name="CreditHistory" placeholder="Credit History" required="required"/>
+        <input type="text" name="SelfEmployed" placeholder="Self Employed?" required="required"/>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Apply</button>
+    </form>
+  <br>
+  <br>
+  <div class="predict_text">
+  {{prediction_text}}
+  </div>
+ </div>
+</body>  
+</html>
